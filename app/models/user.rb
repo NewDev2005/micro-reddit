@@ -3,6 +3,6 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :username, length: { in: 3..12 }
 
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
